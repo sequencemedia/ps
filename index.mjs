@@ -172,13 +172,6 @@ export default async function ps () {
     getPid(DATA)
   ])
 
-  /*
-  const args = getOut(ARGS).trim().split(LF)
-  const data = getOut(DATA).trim().split(LF)
-
-  args.shift()
-  data.shift() */
-
   const args = getOut(ARGS).trim().split(LF).slice(1) // discard head row
   const data = getOut(DATA).trim().split(LF).slice(1) // discard head row
 
