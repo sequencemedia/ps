@@ -4,7 +4,7 @@ export interface ProcessDescriptor {
   readonly uid: number
   readonly cpu: number
   readonly mem: number
-  readonly comm: string
+  readonly cmd: string
   readonly name: string
 }
 
@@ -17,7 +17,7 @@ export interface ProcessDescriptor {
  *  import ps from '@sequencemedia/ps'
  *
  *  console.log(await ps())
- *  //=> [{ pid: 3213, ppid: 1, uid: 501, cpu: 0.1, mem: 1.5, comm: 'node test.js', name: 'node' }, …]
+ *  //=> [{ pid: 3213, ppid: 1, uid: 501, cpu: 0.1, mem: 1.5, cmd: 'node test.js', name: 'node' }, …]
  *  ```
  */
 export default function ps (): Promise<ProcessDescriptor[]>

@@ -105,11 +105,6 @@ function getReduceData (PIDs, CMDs) {
     const {
       groups: {
         pid: PID,
-        ppid,
-        uid,
-        cpu,
-        mem,
-        comm
       }
     } = match
 
@@ -119,13 +114,23 @@ function getReduceData (PIDs, CMDs) {
      *  Exclude `ps` processes
      */
     if (!PIDs.has(pid)) {
+      const {
+        groups: {
+          ppid,
+          uid,
+          cpu,
+          mem,
+          comm
+        }
+      } = match
+
       accumulator.push(Object.freeze({
         pid,
         ppid: Number.parseInt(ppid, 10),
         uid: Number.parseInt(uid, 10),
         cpu: Number.parseFloat(cpu),
         mem: Number.parseFloat(mem),
-        comm: CMDs.get(pid),
+        cmd: CMDs.get(pid),
         name: basename(comm)
       }))
     }
