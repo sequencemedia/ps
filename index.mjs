@@ -104,7 +104,7 @@ function getReduceData (PIDs, CMDs) {
 
     const {
       groups: {
-        pid: PID,
+        pid: PID
       }
     } = match
 

@@ -10,13 +10,15 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@sequencemedia/eslint-config-standard": "^0.2.52",
     "@sequencemedia/eslint-config-typescript": "^0.1.82",
     "@types/node": "^22.15.3",
     "eslint": "^9.26.0",
-    "globals": "^16.0.0"
+    "globals": "^16.0.0",
+    "husky": "^9.1.7"
   }
 }
