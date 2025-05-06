@@ -124,7 +124,7 @@ function getReduceData (PIDs, CMDs) {
         }
       } = match
 
-      accumulator.push(Object.freeze({
+      const row = Object.freeze({
         pid,
         ppid: Number.parseInt(ppid, 10),
         uid: Number.parseInt(uid, 10),
@@ -132,7 +132,9 @@ function getReduceData (PIDs, CMDs) {
         mem: Number.parseFloat(mem),
         cmd: CMDs.get(pid),
         name: basename(comm)
-      }))
+      })
+
+      accumulator.push(row)
     }
 
     return accumulator
@@ -141,18 +143,37 @@ function getReduceData (PIDs, CMDs) {
 
 /**
  *  @param {string} s
- *  @returns {string}
+ *  @returns {string[]}
  */
-export function toHead (s) {
-  return s.trim().split(LF).shift()
+function toRows (s) {
+  return (
+    s.trim().split(LF)
+  )
 }
 
 /**
- *  @param {string} s
+ *  @param {string[]} a
+ *  @returns {string}
+ */
+export function getHead ([s]) {
+  return s
+}
+
+/*
+export function getHead (a) {
+  return (
+    a.slice().shift()
+  )
+} */
+
+/**
+ *  @param {string[]} a
  *  @returns {string[]}
  */
-export function toBody (s) {
-  return s.trim().split(LF).slice(1)
+export function getBody (a) {
+  return (
+    a.slice(1)
+  )
 }
 
 /**
@@ -172,8 +193,8 @@ export default async function ps () {
     getPid(DATA)
   ])
 
-  const args = getOut(ARGS).trim().split(LF).slice(1) // discard head row
-  const data = getOut(DATA).trim().split(LF).slice(1) // discard head row
+  const args = getBody(toRows(getOut(ARGS))) // discard head row
+  const data = getBody(toRows(getOut(DATA))) // discard head row
 
   const CMDs = new Map(args.map(mapArgs))
 
