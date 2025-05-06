@@ -1,6 +1,10 @@
 {
   "name": "@sequencemedia/ps",
   "version": "0.0.2",
+  "keywords": [
+    "ps",
+    "process status"
+  ],
   "main": "./index.mjs",
   "type": "module",
   "license": "MIT",
@@ -16,7 +20,7 @@
   "devDependencies": {
     "@sequencemedia/eslint-config-standard": "^0.2.54",
     "@sequencemedia/eslint-config-typescript": "^0.1.85",
-    "@types/node": "^22.15.12",
+    "@types/node": "^22.15.13",
     "eslint": "^9.26.0",
     "globals": "^16.0.0",
     "husky": "^9.1.7"
