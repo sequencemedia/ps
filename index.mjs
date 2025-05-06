@@ -1,6 +1,6 @@
 /**
- *  @typedef {{ pid: number, out: string }} ArgsType
- *  @typedef {{ pid: number, out: string }} DataType
+ *  @typedef {{ pid: number, out: string, err: string }} ArgsType
+ *  @typedef {{ pid: number, out: string, err: string }} DataType
  */
 import {
   execFile
@@ -29,8 +29,8 @@ function getArgs () {
        *  @param {string} [out]
        *  @returns {void}
        */
-      function complete (e, out = '') {
-        return (!e) ? resolve({ pid, out }) : reject(e)
+      function complete (e, out = '', err = '') {
+        return (!e) ? resolve({ pid, out, err }) : reject(e)
       }
 
       const {
@@ -51,8 +51,8 @@ function getData () {
        *  @param {string} [out]
        *  @returns {void}
        */
-      function complete (e, out = '') {
-        return (!e) ? resolve({ pid, out }) : reject(e)
+      function complete (e, out = '', err = '') {
+        return (!e) ? resolve({ pid, out, err }) : reject(e)
       }
 
       const {
@@ -88,7 +88,10 @@ function mapArgs (line) {
     ...cmd
   ] = line.trim().split(WS)
 
-  return [Number(pid), cmd.join(WS)]
+  return [
+    Number(pid),
+    cmd.join(WS)
+  ]
 }
 
 /**
@@ -124,7 +127,7 @@ function getReduceData (PIDs, CMDs) {
         }
       } = match
 
-      const row = Object.freeze({
+      const row = {
         pid,
         ppid: Number.parseInt(ppid, 10),
         uid: Number.parseInt(uid, 10),
@@ -132,9 +135,9 @@ function getReduceData (PIDs, CMDs) {
         mem: Number.parseFloat(mem),
         cmd: CMDs.get(pid),
         name: basename(comm)
-      })
+      }
 
-      accumulator.push(row)
+      accumulator.push(Object.freeze(row))
     }
 
     return accumulator
@@ -158,13 +161,6 @@ function toRows (s) {
 export function getHead ([s]) {
   return s
 }
-
-/*
-export function getHead (a) {
-  return (
-    a.slice().shift()
-  )
-} */
 
 /**
  *  @param {string[]} a
