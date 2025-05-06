@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/sequencemedia/ps.git"
+    "url": "git+https://github.com/sequencemedia/ps.git"
   },
   "scripts": {
     "lint": "eslint .",
