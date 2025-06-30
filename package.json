@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@sequencemedia/eslint-config-standard": "^0.2.69",
-    "@sequencemedia/eslint-config-typescript": "^0.1.112",
+    "@sequencemedia/eslint-config-typescript": "^0.1.113",
     "@types/node": "^24.0.7",
     "eslint": "^9.30.0",
     "globals": "^16.2.0",
