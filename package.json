@@ -18,8 +18,8 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@sequencemedia/eslint-config-standard": "^0.2.87",
-    "@sequencemedia/eslint-config-typescript": "^0.1.148",
+    "@sequencemedia/eslint-config-standard": "^0.2.88",
+    "@sequencemedia/eslint-config-typescript": "^0.1.149",
     "@types/node": "^24.6.2",
     "eslint": "^9.36.0",
     "globals": "^16.4.0",
