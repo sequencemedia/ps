@@ -15,7 +15,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "prepare": "husky"
+    "prepare": "node husky.mjs"
   },
   "devDependencies": {
     "@sequencemedia/eslint-config-standard": "^0.2.107",
