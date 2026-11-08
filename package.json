@@ -18,11 +18,11 @@
     "prepare": "node husky.mjs"
   },
   "devDependencies": {
-    "@sequencemedia/eslint-config-standard": "^0.2.132",
-    "@sequencemedia/eslint-config-typescript": "^0.1.230",
-    "@types/node": "^26.6.5",
+    "@sequencemedia/eslint-config-standard": "0.2.132",
+    "@sequencemedia/eslint-config-typescript": "0.1.230",
+    "@types/node": "^26.6.6",
     "eslint": "9.38.0",
-    "globals": "^17.13.0",
+    "globals": "^17.14.0",
     "husky": "^9.1.7"
   }
 }
